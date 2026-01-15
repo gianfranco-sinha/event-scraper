@@ -1,0 +1,47 @@
+{
+  "calendar_name": "My Aggregated Events",
+  "filters": {
+    "locations": {
+      "enabled": true,
+      "include": ["London"],
+      "exclude": ["Online", "Virtual"],
+      "radius_miles": null,
+      "center_point": null
+    },
+    "keywords": {
+      "enabled": false,
+      "include": [],
+      "exclude": ["cancelled", "postponed"]
+    },
+    "date_range": {
+      "enabled": false,
+      "start_date": "2025-01-01",
+      "end_date": "2025-12-31"
+    }
+  },
+  "outputs": {
+    "main_calendar": "events.ics",
+    "by_location": true,
+    "by_month": false
+  },
+  "sources": [
+    {
+      "type": "schema",
+      "url": "https://in.yourparty.uk/en/events",
+      "enabled": true
+    },
+    {
+      "type": "html",
+      "url": "https://www.stopwar.org.uk",
+      "enabled": true,
+      "selectors": {
+        "container": ".event-card",
+        "title": "h3.title",
+        "date": ".date",
+        "location": ".venue",
+        "description": ".description",
+        "url": "a.read-more"
+      }
+    }
+  ]
+}
